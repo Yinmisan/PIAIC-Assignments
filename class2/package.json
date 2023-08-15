@@ -1,0 +1,14 @@
+{
+  "name": "class4",
+  "version": "1.0.0",
+  "description": "assingment 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yaseen",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
