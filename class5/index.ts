@@ -54,43 +54,35 @@
   console.log("                                                      ");
 
   let shoppingCart = ["onion", "potato", "carrot"];
-  function addItems(itemName: any) {
-    shoppingCart.push(itemName);
-    return shoppingCart;
-  }
-  function delLastItem() {
-    shoppingCart.pop();
+
+  function splice(stateOfItem: any, itemName: any) {
+    if (stateOfItem == "add") {
+      console.log(`added ${itemName}`);
+      var itemIndexOf: number = shoppingCart.length;
+      shoppingCart.splice(itemIndexOf, 0, itemName);
+    } else if (stateOfItem == "delete") {
+      var itemIndexOf: number = shoppingCart.indexOf(itemName);
+      console.log(`deleted ${itemName}`);
+      shoppingCart.splice(itemIndexOf, 1);
+    } else if (stateOfItem == "index") {
+      var itemIndexOf: number = shoppingCart.indexOf(itemName);
+      console.log(`Index of ${itemName} is at ${itemIndexOf}`);
+    } else if (stateOfItem == "total" && itemName == "total") {
+      console.log(`Length of list is ${shoppingCart.length}`);
+    }
+
     return shoppingCart;
   }
 
-  function carts(itemIndex: number, deleAdd: string, itemName: any) {
-    if (deleAdd == "add") {
-      shoppingCart.splice(itemIndex, 0, itemName);
-    } else if (deleAdd == "dele") {
-      shoppingCart.splice(itemIndex, 1);
-    } else if (deleAdd == "deleThe") {
-      var itemIndexOf: number = shoppingCart.indexOf(itemName);
-      shoppingCart.splice(itemIndexOf, 1);
-    }
-    return shoppingCart;
-  }
-  console.log("Before Adding", shoppingCart);
-  console.log("Added tomato using .push in a function addItems");
-  console.log(addItems("tomato"));
-  console.log("delete tomato using .pop in a function delLastItem");
-  console.log(delLastItem());
-  console.log(
-    "adding egg using .splice . giving a index . add command . name of item example egg in a function carts"
-  );
-  console.log(carts(0, "add", "egg"));
-  console.log(
-    "deleted egg using .splice . giving a index . dele command in a function carts"
-  );
-  console.log(carts(0, "dele", "o"));
-  console.log(
-    "deleted potato using .splice. deleThe command . name of item to be deleted  all in a function carts"
-  );
-  console.log(carts(3456789, "deleThe", "potato")); // use deleThe add the name of what you want to delete next example potato
+  console.log(splice("add", "milk"));
+
+  console.log(splice("delete", "carrot"));
+
+  console.log(splice("add", "tea"));
+
+  console.log(splice("index", "onion"));
+
+  console.log(splice("total", "total"));
 
   console.log("                                                      ");
 }
